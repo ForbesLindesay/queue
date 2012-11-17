@@ -1,0 +1,13 @@
+{
+  "name": "queue",
+  "repo": "ForbesLindesay/queue",
+  "description": "Simple JavaScript queue",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "scripts": [
+    "index.js"
+  ],
+  "twitter": "@ForbesLindesay"
+}
