@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "testling": {
-    "scripts": ["tests/test.js"],
+    "scripts": "tests/test.js",
     "browsers": {
       "ie": [8, 9],
       "ff": [12, 13],
