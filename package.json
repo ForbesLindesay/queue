@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "testling": {
+    "scripts": ["tests/*.js"],
+    "browsers": {
+      "ie": [8, 9],
+      "ff": [12, 13],
+      "chrome": [20],
+      "safari": [5.1]
+    }
+  }
+}

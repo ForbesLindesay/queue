@@ -1,0 +1,10 @@
+console.log('1..4');
+console.log('ok 1 - Input file opened');
+console.log('not ok 2 - First line of the input valid.');
+console.log('    More output from test 2. There can be');
+console.log('    arbitrary number of lines for any output');
+console.log('    so long as there is at least some kind');
+console.log('    of whitespace at beginning of line.');
+console.log('ok 3 - Read the rest of the file');
+console.log('#TAP meta information');
+console.log('not ok 4 - Summarized correctly # TODO Not written yet');
