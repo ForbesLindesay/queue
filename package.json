@@ -5,10 +5,7 @@
   "testling": {
     "files": "test.js",
     "browsers": {
-      "ie": [8, 9],
-      "ff": [12, 13],
-      "chrome": [20],
-      "safari": [5.1]
+      "iexplore": ["9.0"]
     }
   }
 }
