@@ -28,7 +28,7 @@ function fail(description) {
 }
 function expect(success, message, fmessage) {
   if (success) pass(message || 'Assertion passed');
-  else fail(fmessage || message || 'Assertion error');
+  else fail(fmessage || message || 'Assertion failed');
 }
 
 function test(name, fn) {
