@@ -3,6 +3,8 @@
 
   Simple JavaScript queue
 
+[![browser support](http://ci.testling.com/ForbesLindesay/queue.png)](http://ci.testling.com/ForbesLindesay/queue)
+
 ## Installation
 
     $ component install ForbesLindesay/queue
