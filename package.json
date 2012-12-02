@@ -4,7 +4,7 @@
   "testling": {
     "files": "test.js",
     "browsers": {
-      "iexplore": ["0.8", "9.0"],
+      "iexplore": ["8.0", "9.0"],
       "chrome": ["20.0"],
       "firefox": ["13.0"],
       "safari": ["5.1"],
