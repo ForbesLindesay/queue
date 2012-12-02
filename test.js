@@ -1,10 +1,79 @@
-console.log('1..4');
-console.log('ok 1 - Input file opened');
-console.log('not ok 2 - First line of the input valid.');
-console.log('    More output from test 2. There can be');
-console.log('    arbitrary number of lines for any output');
-console.log('    so long as there is at least some kind');
-console.log('    of whitespace at beginning of line.');
-console.log('ok 3 - Read the rest of the file');
-console.log('#TAP meta information');
-console.log('not ok 4 - Summarized correctly # TODO Not written yet');
+var queue = require('./index.js');
+
+function log(text) {
+    process.stdout.write(text + '\n');
+}
+
+function comment(text) {
+  log('# ' + text);
+}
+function bail() {
+  log('Bail out!');
+}
+function plan(start, end) {
+  log(start + '..' + end);
+}
+var n = 1;
+var passes = 0;
+var failures = 0;
+function pass(description) {
+  passes++;
+  description = description.split('\n').join('\n   ');
+  log('ok ' + (n++) + ' - ' + description);
+}
+function fail(description) {
+  failures++;
+  description = description.split('\n').join('\n       ');
+  log('not ok ' + (n++) + ' - ' + description);
+}
+function expect(success, message, fmessage) {
+  if (success) pass(message || 'Assertion passed');
+  else fail(fmessage || message || 'Assertion error');
+}
+
+function test(name, fn) {
+  comment(name);
+  try {
+    fn();
+  } catch (er) {
+    fail(er.toString());
+  }
+}
+
+function matchesSpec(q) {
+  expect(typeof q.enqueue === 'function', 'enqueue should be a function');
+  expect(typeof q.dequeue === 'function', 'dequeue should be a function');
+  expect(typeof q.peek === 'function', 'peek should be a function');
+  expect(typeof q.isEmpty === 'function', 'isEmpty should be a function');
+
+  q.enqueue(1);
+  q.enqueue(2);
+  expect(!q.isEmpty());
+  expect(q.peek() === 1);
+  expect(!q.isEmpty());
+  expect(q.dequeue() === 1);
+  expect(!q.isEmpty());
+  q.enqueue(3);
+  expect(!q.isEmpty());
+  expect(q.dequeue() === 2);
+  expect(!q.isEmpty());
+  expect(q.dequeue() === 3);
+  expect(q.isEmpty());
+}
+comment('As object');
+
+matchesSpec(queue());
+
+comment('As mixin');
+
+function Foo() {}
+var q = queue(new Foo());
+expect(q instanceof Foo, 'works as mixin', 'didn\'t work as mixin');
+matchesSpec(q);
+
+plan(1, passes + failures);
+
+comment('tests ' + (passes + failures));
+comment('pass ' + passes);
+comment('fail ' + failures);
+process.stdout.end();
