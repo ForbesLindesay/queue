@@ -1,6 +1,8 @@
 
 # queue
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ForbesLindesay/queue.svg)](https://greenkeeper.io/)
+
   Simple JavaScript queue
 
 [![browser support](http://ci.testling.com/ForbesLindesay/queue.png)](http://ci.testling.com/ForbesLindesay/queue)
